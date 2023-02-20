@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "properties": {
+    "note": {
+      "type": "string",
+      "maxLength": 250
+    }
+  },
+  "additionalProperties": false
+}
