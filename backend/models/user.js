@@ -21,6 +21,7 @@ class User {
    *
    **/
   static async checkUser(username) {
+    console.log("CHECKING: ", username);
     const result = await db.query(
       `SELECT username, 
                 CASE 
@@ -32,6 +33,8 @@ class User {
     );
 
     const user = result.rows[0];
+
+    console.log(user);
 
     return {
       found: !!user,
