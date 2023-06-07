@@ -21,20 +21,17 @@ class User {
    *
    **/
   static async checkUser(username) {
-    console.log("CHECKING: ", username);
     const result = await db.query(
       `SELECT username, 
                 CASE 
-                  WHEN password IS NULL THEN 0::boolean ELSE 1::boolean  
-                    END password
+                  WHEN "password" IS NULL THEN 0::boolean ELSE 1::boolean  
+                    END "password"
         FROM users
         WHERE username = $1`,
       [username]
     );
 
     const user = result.rows[0];
-
-    console.log(user);
 
     return {
       found: !!user,
