@@ -1,0 +1,18 @@
+{
+  "name": "react-drawer-count",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "concurrently --kill-others \"npm run start-fe\" \"npm run start-be\"",
+    "start-fe": "npm --prefix ./frontend start ./frontend",
+    "start-be": "npm --prefix ./backend start ./backend"
+  },
+  "devDependencies": {
+    "concurrently": "^7.6.0"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react-spinners": "^0.13.8"
+  }
+}

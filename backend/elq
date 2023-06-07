@@ -1,0 +1,51 @@
+-[ RECORD 1 ]-+-------------------------------------
+pk            | 1
+id            | d365994b-f143-42e7-91b2-9f26be8b7537
+user_id       | 1
+created_at    | 2023-04-07 17:10:40.622058
+currency_code | USD
+drawer_amount | 10000
+denominations | [4,2,10,7,2,17,15,21,10,30]
+note          | 
+history_color | 105
+-[ RECORD 2 ]-+-------------------------------------
+pk            | 2
+id            | 0b3cbf57-f237-4660-91ff-cb3623ec1d2f
+user_id       | 1
+created_at    | 2023-04-07 17:10:40.622058
+currency_code | GBP
+drawer_amount | 20000
+denominations | [5,3,10,7,2,16,15,20,10,30]
+note          | User1 Second Submit
+history_color | 105
+-[ RECORD 3 ]-+-------------------------------------
+pk            | 3
+id            | 200df8ff-f364-4085-a03f-990786df1bb2
+user_id       | 2
+created_at    | 2023-04-07 17:10:40.622058
+currency_code | EUR
+drawer_amount | 20000
+denominations | [5,3,10,7,2,16,15,20,10,30]
+note          | 
+history_color | 120
+-[ RECORD 4 ]-+-------------------------------------
+pk            | 4
+id            | 706af4b1-7635-4431-985f-6c8266b5ea2d
+user_id       | 3
+created_at    | 2023-04-07 17:10:40.622058
+currency_code | USD
+drawer_amount | 10000
+denominations | [5,3,10,7,2,16,15,20,10,30]
+note          | 
+history_color | 120
+-[ RECORD 5 ]-+-------------------------------------
+pk            | 5
+id            | 82b42bf4-233a-443d-8921-96f0d38e1f7d
+user_id       | 3
+created_at    | 2023-04-07 17:10:40.622058
+currency_code | USD
+drawer_amount | 20000
+denominations | [5,3,10,7,2,16,15,20,10,30]
+note          | 
+history_color | 60
+

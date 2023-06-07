@@ -1,0 +1,65 @@
+{
+  "__comment__": "When adding new currencies, ensure that all denomination values are integers by multiplying all values by 100",
+  "currencies": {
+    "USD": {
+      "name": "Dollar",
+      "symbol": "$",
+      "bills": [
+        { "name": "$100", "value": 10000 },
+        { "name": "$50", "value": 5000 },
+        { "name": "$20", "value": 2000 },
+        { "name": "$10", "value": 1000 },
+        { "name": "$5", "value": 500 },
+        { "name": "$1", "value": 100 }
+      ],
+      "coins": [
+        { "name": "Quarters", "value": 25 },
+        { "name": "Dimes", "value": 10 },
+        { "name": "Nickels", "value": 5 },
+        { "name": "Pennies", "value": 1 }
+      ]
+    },
+    "EUR": {
+      "name": "Euro",
+      "symbol": "€",
+      "bills": [
+        { "name": "€100", "value": 10000 },
+        { "name": "€50", "value": 5000 },
+        { "name": "€20", "value": 2000 },
+        { "name": "€10", "value": 1000 },
+        { "name": "€5", "value": 500 }
+      ],
+      "coins": [
+        { "name": "€2", "value": 200 },
+        { "name": "€1", "value": 100 },
+        { "name": "50c", "value": 50 },
+        { "name": "20c", "value": 20 },
+        { "name": "10c", "value": 10 },
+        { "name": "5c", "value": 5 },
+        { "name": "2c", "value": 2 },
+        { "name": "1c", "value": 1 }
+      ]
+    },
+    "GBP": {
+      "name": "British Pound",
+      "symbol": "£",
+      "bills": [
+        { "name": "£100", "value": 10000 },
+        { "name": "£50", "value": 5000 },
+        { "name": "£20", "value": 2000 },
+        { "name": "£10", "value": 1000 },
+        { "name": "£5", "value": 500 }
+      ],
+      "coins": [
+        { "name": "£2", "value": 200 },
+        { "name": "£1", "value": 100 },
+        { "name": "50p", "value": 50 },
+        { "name": "20p", "value": 20 },
+        { "name": "10p", "value": 10 },
+        { "name": "5p", "value": 5 },
+        { "name": "2p", "value": 2 },
+        { "name": "1p", "value": 1 }
+      ]
+    }
+  }
+}
