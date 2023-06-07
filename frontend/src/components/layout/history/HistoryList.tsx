@@ -1,7 +1,6 @@
 import HistoryListItem from "./HistoryListItem";
 import Loader from "../../Loader";
 import { useAppSelector } from "../../../hooks/useApp";
-import Box from "@mui/material/Box";
 import List from "@mui/material/List";
 import Typography from "@mui/material/Typography";
 
@@ -14,7 +13,7 @@ export default function HistoryList() {
   if (loadingList) return <Loader />;
 
   return (
-    <Box mt={3}>
+    <>
       {historyList.length > 0 ? (
         <List>
           {historyList.map((item) => (
@@ -24,6 +23,6 @@ export default function HistoryList() {
       ) : (
         <Typography p={2}>No history at this time</Typography>
       )}
-    </Box>
+    </>
   );
 }

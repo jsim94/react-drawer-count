@@ -15,13 +15,13 @@ interface TabPanel {
   other?: any;
 }
 
-function TabPanel({ children, value, index, ...other }: TabPanel) {
+const TabPanel = ({ children, value, index, ...other }: TabPanel) => {
   return (
     <div role="tabpanel" hidden={value !== index} {...other}>
       {children}
     </div>
   );
-}
+};
 
 export default function CalculatorApp() {
   const { loading, result } = useAppSelector((state) => ({
@@ -46,16 +46,30 @@ export default function CalculatorApp() {
     <Box position="relative">
       <Box
         component={Paper}
-        elevation={15}
+        elevation={13}
         mb={2}
         justifyContent="center"
         position={"sticky"}
-        top={72}
+        mt={1}
+        top={65}
         zIndex={"30"}
       >
-        <Tabs value={tab} onChange={handleChange} variant="fullWidth">
-          <Tab label="Input Form" disabled={loading} />
-          <Tab label="Results" disabled={!result || loading} />
+        <Tabs
+          value={tab}
+          onChange={handleChange}
+          variant="fullWidth"
+          sx={{ height: "40px", minHeight: "40px" }}
+        >
+          <Tab
+            label="Input Form"
+            disabled={loading}
+            sx={{ height: "40px", minHeight: "40px" }}
+          />
+          <Tab
+            label="Results"
+            disabled={!result || loading}
+            sx={{ height: "40px", minHeight: "40px" }}
+          />
         </Tabs>
       </Box>
       <TabPanel value={tab} index={0}>

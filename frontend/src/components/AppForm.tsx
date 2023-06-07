@@ -1,5 +1,3 @@
-import { Box, Button, TextField, Typography } from "@mui/material";
-
 import { calcAppState, submitHistory } from "../redux/slices/calculatorApp";
 import useTimeout from "../hooks/useTimeout";
 
@@ -7,6 +5,10 @@ import Loader from "./Loader";
 import { getFields } from "../types/CalcAppTypes";
 import { useAppDispatch, useAppSelector } from "../hooks/useApp";
 import { Dispatch, SetStateAction, useState, useMemo, useEffect } from "react";
+import TextField from "@mui/material/TextField";
+import Grid from "@mui/material/Grid";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
 
 interface AppFormProps {
   setTab: Dispatch<SetStateAction<number>>;
@@ -127,6 +129,7 @@ const AppForm = ({ setTab }: AppFormProps) => {
             key={field.name}
             id={field.name}
             name={field.name}
+            type="tel"
             label={field.name}
             value={
               form[field.name] === undefined || form[field.name] === null
@@ -140,33 +143,34 @@ const AppForm = ({ setTab }: AppFormProps) => {
           />
         );
       })}
-      <Box mb={5}>
-        <Button
-          sx={{ marginInlineEnd: "12px" }}
-          variant="contained"
-          size="large"
-          onClick={handleSubmit}
-          type="submit"
-          disabled={!!result || submitting}
-        >
-          Submit
-        </Button>
-        <Typography sx={{ display: "inline" }}>
-          Total: {schema.symbol}
-          {(total / 100).toFixed(2)}
-        </Typography>
-        <Button
-          variant="contained"
-          color="error"
-          size="large"
-          sx={{ float: "inline-end" }}
-          onClick={
-            handleReset as unknown as React.MouseEventHandler<HTMLButtonElement>
-          }
-        >
-          Reset
-        </Button>
-      </Box>
+      <Grid container mb={5} justifyContent={"space-between"}>
+        <Grid item>
+          <Button
+            sx={{ marginInlineEnd: "12px" }}
+            variant="contained"
+            onClick={handleSubmit}
+            type="submit"
+            disabled={!!result || submitting}
+          >
+            Submit
+          </Button>
+          <Typography sx={{ display: "inline" }}>
+            Total: {schema.symbol}
+            {(total / 100).toFixed(2)}
+          </Typography>
+        </Grid>
+        <Grid item>
+          <Button
+            variant="contained"
+            color="error"
+            onClick={
+              handleReset as unknown as React.MouseEventHandler<HTMLButtonElement>
+            }
+          >
+            Reset
+          </Button>
+        </Grid>
+      </Grid>
     </form>
   );
 };

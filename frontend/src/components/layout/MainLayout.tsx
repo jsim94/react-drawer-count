@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -11,6 +11,7 @@ import Typography from "@mui/material/Typography";
 import SidebarContent from "./SidebarContent";
 import ProfileItem from "./ProfileItem";
 import ComponentChildren from "../../types/ComponentChildren";
+import { useAppSelector } from "../../hooks/useApp";
 
 const drawerWidth = 300;
 
@@ -23,6 +24,14 @@ interface MainLayoutProps {
 
 export default function MainLayout({ children }: MainLayoutProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  const { result } = useAppSelector((state) => ({
+    result: state.calcApp.result,
+  }));
+
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [result]);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -121,7 +130,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
         sx={{
           flexGrow: 1,
           px: 2,
-          pt: 2,
+          pt: 0,
           width: { sm: `calc(100% - ${drawerWidth}px)` },
         }}
       >

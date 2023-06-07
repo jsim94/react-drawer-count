@@ -48,7 +48,7 @@ export default function AuthModal() {
       registerPassword: string;
     }>
   ) => {
-    const { setFieldError, setTouched, validateField } = props;
+    const { setFieldError, validateField } = props;
 
     validateField("username");
 

@@ -1,6 +1,6 @@
 import { createContext, useState, useMemo } from "react";
 import { ThemeOptions, createTheme } from "@mui/material/styles";
-import useMediaQuery from "@mui/material/useMediaQuery";
+// import useMediaQuery from "@mui/material/useMediaQuery";
 import { PaletteMode } from "@mui/material";
 
 declare module "@mui/material/styles" {
@@ -38,11 +38,11 @@ const ColorModeContext = createContext({
 });
 
 function useTheme() {
-  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)")
-    ? "dark"
-    : "light";
+  // const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)")
+  //   ? "dark"
+  //   : "light";
 
-  const [mode, setMode] = useState<"light" | "dark">(prefersDarkMode || "dark");
+  const [mode, setMode] = useState<"light" | "dark">("dark");
 
   const colorMode = useMemo(
     () => ({

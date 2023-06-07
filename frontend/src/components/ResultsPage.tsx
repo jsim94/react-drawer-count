@@ -24,7 +24,7 @@ const ResultDisplay = ({ result, title, rows }: ResultDisplayProps) => {
   return (
     <Paper>
       <Paper elevation={4}>
-        <Typography variant="h5" align="center" py={1}>
+        <Typography align="center" py={1}>
           {title}
         </Typography>
       </Paper>
@@ -32,7 +32,7 @@ const ResultDisplay = ({ result, title, rows }: ResultDisplayProps) => {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell>Denomination</TableCell>
+              <TableCell>Name</TableCell>
               <TableCell>Quanity</TableCell>
             </TableRow>
           </TableHead>
@@ -40,19 +40,23 @@ const ResultDisplay = ({ result, title, rows }: ResultDisplayProps) => {
             {result.values.map((val, idx) => (
               <TableRow key={val.name + title}>
                 <TableCell>{val.name}</TableCell>
-                <TableCell>{rows.denominations[idx]}</TableCell>
+                <TableCell>
+                  <strong>{rows.denominations[idx]}</strong>
+                </TableCell>
               </TableRow>
             ))}
             <TableRow>
-              <TableCell>Change Total</TableCell>
+              <TableCell>Change</TableCell>
               <TableCell>
-                {prettifyCurrencyNumber(rows.changeTotal, result.symbol)}
+                <strong>
+                  {prettifyCurrencyNumber(rows.changeTotal, result.symbol)}
+                </strong>
               </TableCell>
             </TableRow>
             <TableRow>
               <TableCell>Total</TableCell>
               <TableCell>
-                {prettifyCurrencyNumber(rows.total, result.symbol)}
+                <strong>{prettifyCurrencyNumber(rows.total, result.symbol)}</strong>
               </TableCell>
             </TableRow>
           </TableBody>
@@ -76,15 +80,15 @@ const ResultPage = () => {
 
   return (
     <Box>
-      <Grid container justifyContent={"center"}>
-        <Grid item mb={{ sm: 1, xs: 3 }} sm={6} xs={12} p={{ sm: 1 }}>
+      <Grid container justifyContent={"center"} spacing={1} mb={2}>
+        <Grid item sm={6} xs={6} p={{ sm: 1 }}>
           <ResultDisplay
             result={result}
             title="Drawer Values"
             rows={result.drawerValues}
           />
         </Grid>
-        <Grid item mb={2} sm={6} xs={12} p={{ sm: 1 }}>
+        <Grid item sm={6} xs={6} p={{ sm: 1 }}>
           <ResultDisplay
             result={result}
             title="Deposit Values"
@@ -93,14 +97,14 @@ const ResultPage = () => {
         </Grid>
       </Grid>
       <Box
-        mb={5}
+        mb={4}
         component={Paper}
         width={"100%"}
         p={1}
         elevation={4}
         bgcolor={bgcolor!}
       >
-        <Typography variant="h6" align="center">
+        <Typography align="center">
           Grand total: {prettifyCurrencyNumber(result.total, result.symbol)}
         </Typography>
       </Box>
