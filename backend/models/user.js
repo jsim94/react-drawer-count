@@ -132,8 +132,8 @@ class User {
                   currency,
                   amount,
                   CASE 
-                    WHEN password IS NULL THEN 0::boolean ELSE 1::boolean  
-                    END password
+                    WHEN "password" IS NULL THEN 0::boolean ELSE 1::boolean  
+                    END "password"
            FROM users
            WHERE username = $1`,
       [username]
