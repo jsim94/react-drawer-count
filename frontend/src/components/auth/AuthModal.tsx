@@ -53,8 +53,6 @@ export default function AuthModal() {
     const { setFieldError, setTouched, validateField } = props;
 
     validateField("username");
-    // setTouched("loginPassword", false);
-    // setTouched("registerPassword", false);
 
     api
       .checkUsername(data)
