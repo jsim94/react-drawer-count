@@ -24,6 +24,10 @@ app.use("/api/auth", authRoutes);
 app.use("/api/history", historyRoutes);
 app.use("/api/users", userRoutes);
 
+app.get("/api", async (req, res, next) => {
+  return res.status(200).json({ status: "ok" });
+});
+
 /** Handle 404 errors -- this matches everything */
 app.use((req, res, next) => {
   return next(new NotFoundError());
