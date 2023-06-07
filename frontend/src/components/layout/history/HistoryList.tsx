@@ -1,7 +1,9 @@
-import { Box, List, Typography } from "@mui/material";
 import HistoryListItem from "./HistoryListItem";
 import Loader from "../../Loader";
 import { useAppSelector } from "../../../hooks/useApp";
+import Box from "@mui/material/Box";
+import List from "@mui/material/List";
+import Typography from "@mui/material/Typography";
 
 export default function HistoryList() {
   const { historyList, loadingList } = useAppSelector((state) => ({

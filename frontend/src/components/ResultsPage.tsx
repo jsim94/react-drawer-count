@@ -1,21 +1,18 @@
-import {
-  Box,
-  Grid,
-  Paper,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Typography,
-} from "@mui/material";
-
 import { prettifyCurrencyNumber } from "../helpers/prettify";
 import Loader from "./Loader";
 import { CalcResult, DenominationResult } from "../types/CalcAppTypes";
 import { useAppSelector } from "../hooks/useApp";
 import { red } from "@mui/material/colors";
+import Paper from "@mui/material/Paper";
+import Typography from "@mui/material/Typography";
+import TableContainer from "@mui/material/TableContainer";
+import Table from "@mui/material/Table";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import TableCell from "@mui/material/TableCell";
+import TableBody from "@mui/material/TableBody";
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
 
 interface ResultDisplayProps {
   result: CalcResult;

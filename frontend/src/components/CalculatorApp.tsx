@@ -1,10 +1,12 @@
-import Loader from "./Loader";
 import AppForm from "./AppForm";
-import { Box, Paper, Tab, Tabs } from "@mui/material";
 import { useEffect, useState } from "react";
 import ResultPage from "./ResultsPage";
 import { useAppSelector } from "../hooks/useApp";
 import ComponentChildren from "../types/ComponentChildren";
+import Box from "@mui/material/Box";
+import Paper from "@mui/material/Paper";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
 
 interface TabPanel {
   children: ComponentChildren;
@@ -38,10 +40,7 @@ export default function CalculatorApp() {
 
   useEffect(() => {
     if (result) setTab(1);
-    else setTab(0);
   }, [result]);
-
-  if (loading) return <Loader />;
 
   return (
     <Box position="relative">
@@ -55,8 +54,8 @@ export default function CalculatorApp() {
         zIndex={"30"}
       >
         <Tabs value={tab} onChange={handleChange} variant="fullWidth">
-          <Tab label="Input Form" />
-          <Tab label="Results" disabled={!result} />
+          <Tab label="Input Form" disabled={loading} />
+          <Tab label="Results" disabled={!result || loading} />
         </Tabs>
       </Box>
       <TabPanel value={tab} index={0}>

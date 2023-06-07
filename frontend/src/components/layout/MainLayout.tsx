@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import { useState } from "react";
 
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -10,7 +10,6 @@ import Typography from "@mui/material/Typography";
 
 import SidebarContent from "./SidebarContent";
 import ProfileItem from "./ProfileItem";
-import { useSelector } from "react-redux";
 import ComponentChildren from "../../types/ComponentChildren";
 
 const drawerWidth = 300;

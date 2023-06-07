@@ -2,16 +2,11 @@ import { Box, Button, TextField, Typography } from "@mui/material";
 
 import { calcAppState, submitHistory } from "../redux/slices/calculatorApp";
 import useTimeout from "../hooks/useTimeout";
-import React, {
-  Dispatch,
-  SetStateAction,
-  useEffect,
-  useMemo,
-  useState,
-} from "react";
+
 import Loader from "./Loader";
 import { getFields } from "../types/CalcAppTypes";
 import { useAppDispatch, useAppSelector } from "../hooks/useApp";
+import { Dispatch, SetStateAction, useState, useMemo, useEffect } from "react";
 
 interface AppFormProps {
   setTab: Dispatch<SetStateAction<number>>;
@@ -51,6 +46,7 @@ const AppForm = ({ setTab }: AppFormProps) => {
     } else if (pristine) {
       setPristine(false);
       setForm({ ...form });
+      setTab(0);
       return;
     }
 

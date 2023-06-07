@@ -3,7 +3,6 @@ import DrawerCounterApi from "../../api/DrawerCounterApi";
 import { RootState } from "../store";
 import {
   CalcResult,
-  CurrencyField,
   HistoryItem,
   Schema,
   Submission,
@@ -126,8 +125,15 @@ const calcAppSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
+      .addCase(submitHistory.pending, (state, { payload }) => {
+        state.loading = true;
+      })
+      .addCase(submitHistory.rejected, (state, { payload }) => {
+        state.loading = false;
+      })
       .addCase(submitHistory.fulfilled, (state, { payload }) => {
         state.result = payload;
+        state.loading = false;
       })
       .addCase(fetchAllHistory.pending, (state) => {
         state.loadingList = true;
@@ -152,6 +158,13 @@ const calcAppSlice = createSlice({
       })
       .addCase(fetchHistory.fulfilled, (state, { payload }) => {
         state.result = payload;
+        state.loading = false;
+      })
+      .addCase(fetchHistory.pending, (state, { payload }) => {
+        state.loading = true;
+      })
+      .addCase(fetchHistory.rejected, (state, { payload }) => {
+        state.loading = false;
       })
       .addCase(deleteAllHistory.pending, (state) => {
         state.deleteLoading = true;

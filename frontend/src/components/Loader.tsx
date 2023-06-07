@@ -1,6 +1,6 @@
-import { Box, useTheme } from "@mui/material";
-import React from "react";
-import { PuffLoader } from "react-spinners";
+import Box from "@mui/material/Box";
+import useTheme from "@mui/material/styles/useTheme";
+import PuffLoader from "react-spinners/PuffLoader";
 
 interface LoaderProps {
   fullscreen?: boolean;

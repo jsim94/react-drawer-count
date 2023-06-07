@@ -1,12 +1,3 @@
-import {
-  Button,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogTitle,
-  FormControl,
-  TextField,
-} from "@mui/material";
 import { Form, Formik, FormikHelpers } from "formik";
 import * as Yup from "yup";
 
@@ -14,6 +5,13 @@ import { userLogin, userRegister } from "../../redux/slices/auth";
 import DrawerCounterApi from "../../api/DrawerCounterApi";
 import { useAppDispatch } from "../../hooks/useApp";
 import { useState } from "react";
+import Dialog from "@mui/material/Dialog";
+import DialogTitle from "@mui/material/DialogTitle";
+import FormControl from "@mui/material/FormControl";
+import DialogContent from "@mui/material/DialogContent";
+import TextField from "@mui/material/TextField";
+import DialogActions from "@mui/material/DialogActions";
+import Button from "@mui/material/Button";
 
 export default function AuthModal() {
   const dispatch = useAppDispatch();
@@ -194,6 +192,7 @@ export default function AuthModal() {
                     type="password"
                     value={values[page === 1 ? "loginPassword" : "registerPassword"]}
                     onChange={handleChange}
+                    disabled={isSubmitting}
                   />
                 ) : null}
               </FormControl>

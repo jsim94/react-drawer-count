@@ -31,8 +31,6 @@ class User {
       [username]
     );
 
-    console.log(result.command);
-
     const user = result.rows[0];
 
     return {
