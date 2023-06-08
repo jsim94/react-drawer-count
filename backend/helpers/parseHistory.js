@@ -46,8 +46,6 @@ function parseHistory({ currencyCode, drawerAmount, denominations }) {
     []
   );
 
-  console.log(denominations);
-
   return {
     currencyCode,
     drawerAmount,

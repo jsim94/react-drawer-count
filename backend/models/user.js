@@ -24,8 +24,8 @@ class User {
     const result = await db.query(
       `SELECT username, 
                 CASE 
-                  WHEN password IS NULL THEN 0::boolean ELSE 1::boolean  
-                    END password
+                  WHEN "password" IS NULL THEN 0::boolean ELSE 1::boolean  
+                    END "password"
         FROM users
         WHERE username = $1`,
       [username]
@@ -50,7 +50,7 @@ class User {
     // try to find the user first
     const result = await db.query(
       `SELECT username,
-              password
+              "password"
         FROM users
         WHERE username = $1`,
       [username]
@@ -104,7 +104,7 @@ class User {
     const res = await db.query(
       `INSERT INTO users (
           username,
-          password
+          "password"
         )
         VALUES ($1, $2)
         RETURNING username;`,
@@ -130,8 +130,8 @@ class User {
                   currency,
                   amount,
                   CASE 
-                    WHEN password IS NULL THEN 0::boolean ELSE 1::boolean  
-                    END password
+                    WHEN "password" IS NULL THEN 0::boolean ELSE 1::boolean  
+                    END "password"
            FROM users
            WHERE username = $1`,
       [username]
@@ -175,8 +175,8 @@ class User {
                                 currency,
                                 amount,
                                 CASE 
-                                  WHEN password IS NULL THEN 0::boolean ELSE 1::boolean  
-                                  END password`;
+                                  WHEN "password" IS NULL THEN 0::boolean ELSE 1::boolean  
+                                  END "password"`;
 
     const result = await db.query(querySql, [...values, username]);
     const user = result.rows[0];
