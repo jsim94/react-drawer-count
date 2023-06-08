@@ -10,10 +10,9 @@ const PORT = +process.env.PORT || 3001;
 // Use dev database, testing database, or via env var, production database
 function getDatabaseUri() {
   function genUri() {
-    const { DB_USER, DB_PW, DB_URI } = process.env;
+    const { DB_USER, DB_PW } = process.env;
     const dbName =
-      DB_URI ||
-      (process.env.NODE_ENV === "test" ? "drawer_count_test" : "drawer_count");
+      process.env.NODE_ENV === "test" ? "drawer_count_test" : "drawer_count";
     return `postgresql://${DB_USER}:${DB_PW}@localhost/${dbName}`;
   }
 

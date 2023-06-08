@@ -6,10 +6,12 @@ import TextField from "@mui/material/TextField";
 import Grid from "@mui/material/Grid";
 
 import { updateUser } from "../../../redux/slices/auth";
-import { Box, Button, Paper, Popover } from "@mui/material";
 import { deleteAllHistory } from "../../../redux/slices/calculatorApp";
 import { useAppDispatch, useAppSelector } from "../../../hooks/useApp";
 import { useState, useEffect } from "react";
+import Button from "@mui/material/Button";
+import Popover from "@mui/material/Popover";
+import Box from "@mui/material/Box";
 
 export default function Options() {
   const dispatch = useAppDispatch();
@@ -66,16 +68,7 @@ export default function Options() {
   };
 
   return (
-    <Grid
-      container
-      component={Paper}
-      spacing={2}
-      paddingBottom={2}
-      justifyContent="center"
-      position={"sticky"}
-      top={0}
-      zIndex={"30"}
-    >
+    <>
       <Grid item xs="auto" mb={1}>
         <FormControl>
           <InputLabel id="currency-code-label">Currency</InputLabel>
@@ -135,6 +128,6 @@ export default function Options() {
           </Box>
         </Popover>
       </Grid>
-    </Grid>
+    </>
   );
 }

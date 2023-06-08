@@ -24,7 +24,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/history", historyRoutes);
 app.use("/api/users", userRoutes);
 
-app.get("/api", async (req, res, next) => {
+app.get("/", async (req, res, next) => {
   return res.status(200).json({ status: "ok" });
 });
 

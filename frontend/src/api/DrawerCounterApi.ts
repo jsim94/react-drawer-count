@@ -67,7 +67,9 @@ export default class DrawerCounterApi {
     const url = `${this.baseUrl}/${endpoint}`;
     const headers = { Authorization: `Bearer ${this._token}` };
     const params = method === "get" ? data : {};
-    console.debug("REQUEST: " + method.toUpperCase() + " " + url, data);
+    if (process.env.REACT_APP_NODE_ENV !== "prod") {
+      console.debug("REQUEST: " + method.toUpperCase() + " " + url, data);
+    }
     try {
       const resp = await axios({ url, method, data, params, headers });
       return resp.data;
@@ -77,7 +79,7 @@ export default class DrawerCounterApi {
         let message = err.response.data.error;
         throw Array.isArray(message) ? message : [message];
       }
-      if (err.message == "Network Error") {
+      if (err.message === "Network Error") {
         throw ["No response from server"];
       }
       throw ["An error has occured"];
