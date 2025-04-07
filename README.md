@@ -1,3 +1,4 @@
+# NOTE: Live product is currently unavailable, backend provider has shut down
 # drawer-calculator
 
 https://react-drawer-count.surge.sh/
